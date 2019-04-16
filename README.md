@@ -6,7 +6,7 @@ As a user, I want to login with authentication to the page (dereje)
   
 As a user I can select property type to to display using a Property Type drop-down (han kuo)
  
-As a user, I want admin privileges to allow map features to be edited, e.g. change colors on map, etc.
+As a user, I want admin privileges to allow map features to be edited, e.g. change colors on map, etc.(micheal)
 
 As a user, I want to see price and status of parcel on hover-over of pin on map.(Robel)
  
