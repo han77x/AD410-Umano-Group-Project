@@ -18,7 +18,7 @@ As a user, I want to see detailed information appear in the lower half of screen
 
 As a user, I want to be able to search using google maps to locate a parcel.(kyle)
 
-As a developer ,I need to define MVP to start the project (group) √
+As a developer ,I need to define MVP to start the project (group) √ ->complete
  
 As a developer, I nedd to have a Json file withh all data for testing (dereje)
  
