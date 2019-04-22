@@ -1,0 +1,4 @@
+node_modules/
+db_creds.json
+public/.DS_Store
+.DS_Store
