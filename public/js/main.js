@@ -3,8 +3,6 @@
 //     document.getElementById("demo").innerHTML = x;
 // }
 /*Creates initial map view*/
-// var mJSVariable = %:api_key%;
-
 function initMap() {
   var map = new google.maps.Map(document.getElementById('container'), {
     zoom: 12,
