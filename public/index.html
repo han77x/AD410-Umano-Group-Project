@@ -6,10 +6,10 @@
 		<title>Map Page</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<!-- SCRIPT START -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>
 		<!-- SCRIPT END -->
 	</head>
-
 
 	<body>
 		<header>
@@ -21,16 +21,32 @@
 		<div id="container_top">
 
 		<div id="select_div">
-			<button id="button1" onclick="myFunction()"></button><p>Residential</p>
-			<button id="button2" onclick="myFunction()"></button><p>Business</p>
-			<button id="button3" onclick="myFunction()"></button><p>Commercial</p>
-			</div>
+			<ul id=building_type>
+				<!-- <button id="button1" onclick="myFunction()"></button><p>Residential</p>
+				<button id="button2" onclick="myFunction()"></button><p>Business</p>
+				<button id="button3" onclick="myFunction()"></button><p>Commercial</p> -->
+			</ul>
+		</div>
+
+		<!-- <script>
+
+				buildingTypeList = ["<input type='checkbox' name='single_family' value='Single-Family'>Single-Family",
+				 											"<input type='checkbox' name='multi_family' value='Mult-Family'>Multi-Family",
+															"<input type='checkbox' name='condo_townhome' value='Condo/Townhome'>Condo/Townhome",
+															"<input type='checkbox' name='retail' value='Retail'>Retail",
+															"<input type='checkbox' name='office' value='Office'>Office",
+															"<input type='checkbox' name='other' value='Other'>Other"];
+				var text = "";
+				for(b in buildingTypeList) {
+					text += "<li>" + buildingTypeList[b] + "</li>";
+					document.getElementById("building_type").innerHTML = text;
+				}
+		</script> -->
 
 			<div id="search_div">
 				<input type="search" id="searchbar" placeholder="&nbsp;&nbsp;&nbsp;Please Enter Your Search">
 				<input type="button" id="button_search" value="ENTER">
 			</div>
-		</div>
 		</div>
 
 		<div id="container"></div>
@@ -38,7 +54,7 @@
 
 			<!-- API KEY goes here -->
 		<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaLvaXYhB8BkdVtD743AygJ3N3Cp_baK4&callback=initMap">
     </script>
 
 		<!-- START Footer -->
