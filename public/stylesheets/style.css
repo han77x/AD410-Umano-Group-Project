@@ -154,3 +154,55 @@ button_f3{
   border-radius: 50%;
   border: 1px solid red;
 }
+/** Style for admin**/
+#admin-form{
+  width:80%;
+  height:400px;
+  background-color:#ffffff;
+  color:#000000;    
+  opacity: .4;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+}
+
+.adminbox {
+  width:60%;
+ 
+  margin-left: 10px;
+  padding-left: 10px;
+  align-items: center;
+  }
+
+  #adform-container {
+  max-width:800px;
+  width:100%;
+  margin:auto;
+  align-items: center;
+}
+
+#admin-form input[type="text"]
+
+ {
+  margin: 0 0 10px;
+  padding: 0;
+  width: 60%;
+  height: 30px;
+  background: white;
+  color: black;
+
+
+}
+
+
+#building_typeColor{
+  color:#045cf4;
+  font-weight:bold;
+  align-items: center;
+}
+#colorDiv{
+  margin-left: 100px;
+}
+#adminbutton{
+  background: #4af77e;
+}
