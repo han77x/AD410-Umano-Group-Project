@@ -48,7 +48,7 @@ function showMarker(result, resultsMap) {
     map: resultsMap,
     position: location,
   });
-  //Keep track of markers 
+  //Keep track of markers
   markers.push(marker);
 }
 

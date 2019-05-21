@@ -6,6 +6,7 @@
 		<title>Map Page</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<!-- SCRIPT START -->
+		<script type='text/javascript' src='config.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>
 		<!-- SCRIPT END -->
@@ -36,8 +37,10 @@
 		<div id="container"></div>
 
 			<!-- API KEY goes here -->
-		<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
+		<script async defer>
+			var api_key = config.API_KEY;
+			var urlText = "https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=initMap";
+      document.write("<script type='text/javascript' src='"+urlText+"'><\/script>");
     </script>
 
 		<!-- START Footer -->
