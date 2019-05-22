@@ -38,17 +38,33 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
+
 function showMarker(result, resultsMap) {
   var location = {};
   location.lat = (Number(result.latitude));
   location.lng = (Number(result.longitude));
   console.log(location);
   resultsMap.setCenter(location);
+
+  var infowindow = new google.maps.InfoWindow({
+    content: result.PropertyName
+  });
+
   var marker = new google.maps.Marker({
     map: resultsMap,
     position: location,
   });
-  //Keep track of markers
+
+  marker.addListener('mouseover', function() {
+    infowindow.open(resultsMap, marker);
+  });
+
+  marker.addListener('mouseout', function() {
+    infowindow.close(resultsMap, marker);
+  });
+
+
+  //Keep track of markers 
   markers.push(marker);
 }
 
@@ -153,4 +169,5 @@ function buildingType(bl) {
     text += "<li>" + buildingTypeList[b] + "</li>";
     document.getElementById("building_type").innerHTML = text;
   }
+
 }
