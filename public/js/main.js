@@ -1,4 +1,3 @@
-
 var buildingList = [];
 var checkList = [];
 var markers = [];
@@ -46,6 +45,8 @@ function showMarker(result, resultsMap) {
   console.log(location);
   resultsMap.setCenter(location);
 
+
+
   var infowindow = new google.maps.InfoWindow({
     content: result.PropertyName
   });
@@ -64,7 +65,7 @@ function showMarker(result, resultsMap) {
   });
 
 
-  //Keep track of markers 
+  //Keep track of markers
   markers.push(marker);
 }
 
@@ -81,15 +82,15 @@ function deleteMarkers() {
 
 function displayMarkers(resultsMap) {
 
-	$.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
+  $.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
     if(status === 'success') {
       for(var i in result) {
-    		showMarker(result[i], resultsMap);
+        showMarker(result[i], resultsMap);
       }
     } else {
       alert("The property didn't display for the following reason: " + status);
     }
-	});
+  });
 }
 
 function markerMask (resultsMap) {
@@ -106,18 +107,18 @@ function markerMask (resultsMap) {
         }
         console.log(check);
         if(check) {
-            showMarker(result[i], resultsMap);
+          showMarker(result[i], resultsMap);
         }
       }
     } else {
       alert("Properties didn't display for the following reason: " + status);
     }
-	});
+  });
 }
 
 // Runs the following functions after the document loads
 $(document).ready(function(){
-	getBuildingType();
+  getBuildingType();
 });
 
 function displayProperties() {
@@ -134,11 +135,11 @@ function displayProperties() {
   }
   // console.log(checkList);
   // console.log(checkList[2].type);
- }
+}
 
 //get all messages from db
 function getBuildingType() {
-	$.getJSON("http://localhost:3000/api/v1/addresses/", (result)=>{
+  $.getJSON("http://localhost:3000/api/v1/addresses/", (result)=>{
 
     var unique;
 
@@ -156,7 +157,7 @@ function getBuildingType() {
     }
     buildingType(buildingList);
     // return buildingList;
-	});
+  });
 }
 
 function buildingType(bl) {
@@ -169,5 +170,4 @@ function buildingType(bl) {
     text += "<li>" + buildingTypeList[b] + "</li>";
     document.getElementById("building_type").innerHTML = text;
   }
-
 }
