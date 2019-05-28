@@ -20,6 +20,9 @@ function initMap() {
   });
 
   displayMarkers(map);
+
+  var trafficLayer = new google.maps.TrafficLayer();
+  trafficLayer.setMap(map);
 }
 /*Converts address to geolocation and centers map on it */
 function geocodeAddress(geocoder, resultsMap) {
@@ -64,7 +67,7 @@ function showMarker(result, resultsMap) {
   });
 
 
-  //Keep track of markers 
+  //Keep track of markers
   markers.push(marker);
 }
 
@@ -79,6 +82,7 @@ function deleteMarkers() {
   markers = [];
 }
 
+// Displays all property markers on page load
 function displayMarkers(resultsMap) {
 
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
@@ -92,6 +96,7 @@ function displayMarkers(resultsMap) {
 	});
 }
 
+// Displays markers only for building types that are checked
 function markerMask (resultsMap) {
   displayProperties();
   deleteMarkers();
