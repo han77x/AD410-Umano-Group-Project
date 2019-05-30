@@ -1,3 +1,5 @@
+   
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,39 +8,42 @@
 		<title>Map Page</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<!-- SCRIPT START -->
+		<script type='text/javascript' src='config.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<!-- SCRIPT END -->
-	</head>
 
+		<!-- SCRIPT END -->
+
+	</head>
 	<body>
 		<header>
 			<h1>UMANO Map Page</h1>
 		</header>
 		<nav>
-
 		</nav>
 		<div id="container_top">
-
 		<div id="select_div">
 			<ul id=building_type>
-
 			</ul>
 			<input type="button" id="marker_button" value="ENTER">
 		</div>
-
 			<div id="search_div">
 				<input type="search" id="searchbar" placeholder="&nbsp;&nbsp;&nbsp;Please Enter Your Search">
 				<input type="button" id="button_search" value="ENTER">
 			</div>
 		</div>
-
 		<div id="container"></div>
 
+
+
 			<!-- API KEY goes here -->
-		<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
+		<script async defer>
+			var api_key = config.API_KEY;
+			var urlText = "https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=initMap";
+      document.write("<script type='text/javascript' src='"+urlText+"'><\/script>");
     </script>
+
+
 
 		<!-- START Footer -->
 		<footer>
@@ -50,10 +55,19 @@
 			</div>
 			<p class="footerfont"><small>&copy; 2019 - <?=date('Y')?> by <a href="#" target="_blank">Hanbo Yoon</a><a>, All Rights Reserved ~ </a></small></p>
 
+			// Robels property into on the bottom
+			<div id="property_info">
+				<ul>
+					<li>Coffee</li>
+					<li>Tea</li>
+					<li>Milk</li>
+				</ul>
+			</div>
+
 		</footer>
+
 		<!-- END Footer -->
 
-
-
 	</body>
+
 </html>

@@ -1,35 +1,60 @@
-var buildingList = [];
+/**$(document).ready(function(){
+$("#adminbutton").click(function(e)
+{
+var MyForm = JSON.stringify($("#admin-form").serializeJSON());
+console.log(MyForm);
+ $.ajax(
+ {
+ url : "localhost:3000/api/v1/colors",
+ type: "POST",
+ data : MyForm,
+
+ });
+ e.preventDefault(); //STOP default action
+
+});
+});
+
+**/
+
+
+
+var buildingList2 = [];
 $(document).ready(function(){
 	getBuildingType();
 });
 
 function getBuildingType() {
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result)=>{
-
     var unique;
 
     for (var i = 0; i < result.length; i++) {
       unique = true;
-      for(var b in buildingList){
-        if(result[i].BuildingType == buildingList[b]) {
+      console.log(result[i].PropertyID)
+      for(var b in buildingList2){
+        if(result[i].BuildingType == buildingList2[b]) {
           unique = false;
           break;
         }
       }
       if(unique == true) {
-        buildingList.push(result[i].BuildingType);
+        //buildingList2.push( {result[i].BuildingType, result[i].PropertyI} );
+        buildingList2.push(result[i].BuildingType);
       }
     }
-    buildingTypeColor(buildingList);
+    buildingTypeColor(buildingList2);
  
 	});
 }
 
 function buildingTypeColor(bl) {
 
-var bldgTypeColorList =[]
+bldgTypeColorList =[]
+
   for(j in bl) {
-    bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j] + " >" +bl[j])
+  	//bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j] + " >" +bl[j])
+    console.log(bl.indexOf(bl[j]));
+    bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j]+ "  name="+'c'+ j+" >" +bl[j])
   }
 
   var colorText="";
@@ -39,3 +64,5 @@ var bldgTypeColorList =[]
 
   }
 }
+localStorage.setItem("buildingList2",buildingList2);
+

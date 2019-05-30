@@ -1,7 +1,12 @@
 
+var pincolors =[];
+loadPinColors();
+
+console.log(pincolors)
 var buildingList = [];
 var checkList = [];
 var markers = [];
+//var buildingList2=localStorage.getItem("buildingList2");
 
 /*Creates initial map view*/
 function initMap() {
@@ -18,6 +23,11 @@ function initMap() {
   document.getElementById('marker_button').addEventListener('click', function() {
     markerMask(map);
   });
+    
+    //trafic conditions
+    var trafficLayer = new google.maps.TrafficLayer();
+ trafficLayer.setMap(map);
+
 
   displayMarkers(map);
 }
@@ -38,19 +48,62 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 
-function showMarker(result, resultsMap) {
+function pinSymbol(color) {
+    return {
+        path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+        fillColor: color,
+        fillOpacity: 1,
+        strokeColor: '#000',
+        strokeWeight: 2,
+        scale: 1,
+   };
+}
+
+
+
+
+
+function showMarker(result, resultsMap,pinColor) {
   var location = {};
   location.lat = (Number(result.latitude));
   location.lng = (Number(result.longitude));
   console.log(location);
   resultsMap.setCenter(location);
+    
+    
+    //hanbos code
+    var infowindow = new google.maps.InfoWindow({
+    content: '<p><b>Property Name</b>: '+ result.PropertyName + "<br />" +  '<p><b>Address</b>: ' + result.Adress + "<br />" + '<p><b>Property Type</b>: ' + result.PropertyType + "<br />" + '<p><b>Property ID</b>: ' + result.PropertyI
+  });
+    
+    //end hanbos code
+
+
+
+
   var marker = new google.maps.Marker({
     map: resultsMap,
     position: location,
+    icon: pinSymbol(pinColor)
+    //icon: {
+
+      //url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+
+    //}
   });
   //Keep track of markers 
+
+  marker.addListener('mouseover', function() {
+    infowindow.open(resultsMap, marker);
+  });
+  marker.addListener('mouseout', function() {
+    infowindow.close(resultsMap, marker);
+  });
+
   markers.push(marker);
 }
+
+
 
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
@@ -64,15 +117,32 @@ function deleteMarkers() {
 }
 
 function displayMarkers(resultsMap) {
-
+  
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
     if(status === 'success') {
+      
       for(var i in result) {
-    		showMarker(result[i], resultsMap);
-      }
+        
+        //var pinColor = document.getElementById(buildingList2[i]).value;
+        //console.log(pinColor)
+        
+        pinColor = pincolors[result[i].BuildingID]
+
+
+         //$.getJSON("http://localhost:3000/api/v1/allcolors", (result)=>{
+       
+        
+    		showMarker(result[i], resultsMap, pinColor);
+      //});
+
+
+
+    }
+
     } else {
       alert("The property didn't display for the following reason: " + status);
     }
+  
 	});
 }
 
@@ -81,7 +151,13 @@ function markerMask (resultsMap) {
   deleteMarkers();
   $.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
     if(status === 'success') {
+      //var pinColor;
       for(i in result) {
+        
+       var pinColor =pincolors[result[i].BuildingID];
+       //var pinColor = document.getElementById(buildingList2[i]).value;
+        
+
         for(c in checkList) {
           if(result[i].BuildingType == checkList[c].type){
             check = checkList[c].checked;
@@ -90,7 +166,11 @@ function markerMask (resultsMap) {
         }
         console.log(check);
         if(check) {
-            showMarker(result[i], resultsMap);
+          
+        showMarker(result[i], resultsMap, pinColor);
+            
+            console.log(pinColor)
+            //showMarker(result[i], resultsMap, pinColor);
         }
       }
     } else {
@@ -116,8 +196,7 @@ function displayProperties() {
 
     checkList.push(building);
   }
-  // console.log(checkList);
-  // console.log(checkList[2].type);
+  
  }
 
 //get all messages from db
@@ -144,13 +223,33 @@ function getBuildingType() {
 }
 
 function buildingType(bl) {
+  
   var buildingTypeList = []
   for(i in bl) {
     buildingTypeList.push("<input type='checkbox' id=" + bl[i] + " value='check_box'>" + bl[i])
   }
+
   var text = "";
+  
   for(b in buildingTypeList) {
-    text += "<li>" + buildingTypeList[b] + "</li>";
+   text += "<li>" + buildingTypeList[b] + "</li>";
     document.getElementById("building_type").innerHTML = text;
   }
+
 }
+
+function loadPinColors(){
+  $.getJSON("http://localhost:3000/api/v1/allColors", (res)=>{
+     for(i in res){
+      pincolors.push(res[i].Color);
+     }
+  });
+}
+
+
+
+
+  
+
+
+
