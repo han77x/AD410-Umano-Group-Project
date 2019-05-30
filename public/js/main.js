@@ -30,6 +30,9 @@ function initMap() {
 
 
   displayMarkers(map);
+
+  var trafficLayer = new google.maps.TrafficLayer();
+  trafficLayer.setMap(map);
 }
 /*Converts address to geolocation and centers map on it */
 function geocodeAddress(geocoder, resultsMap) {
@@ -64,12 +67,12 @@ function pinSymbol(color) {
 
 
 function showMarker(result, resultsMap,pinColor) {
+
   var location = {};
   location.lat = (Number(result.latitude));
   location.lng = (Number(result.longitude));
   console.log(location);
   resultsMap.setCenter(location);
-    
     
     //hanbos code
     var infowindow = new google.maps.InfoWindow({
@@ -77,9 +80,6 @@ function showMarker(result, resultsMap,pinColor) {
   });
     
     //end hanbos code
-
-
-
 
   var marker = new google.maps.Marker({
     map: resultsMap,
@@ -91,19 +91,19 @@ function showMarker(result, resultsMap,pinColor) {
 
     //}
   });
-  //Keep track of markers 
 
+  //Keep track of markers 
   marker.addListener('mouseover', function() {
     infowindow.open(resultsMap, marker);
   });
+
   marker.addListener('mouseout', function() {
     infowindow.close(resultsMap, marker);
   });
 
+  //Keep track of markers
   markers.push(marker);
 }
-
-
 
 function setMapOnAll(map) {
   for (var i = 0; i < markers.length; i++) {
@@ -116,6 +116,7 @@ function deleteMarkers() {
   markers = [];
 }
 
+// Displays all property markers on page load
 function displayMarkers(resultsMap) {
   
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
@@ -128,16 +129,11 @@ function displayMarkers(resultsMap) {
         
         pinColor = pincolors[result[i].BuildingID]
 
-
          //$.getJSON("http://localhost:3000/api/v1/allcolors", (result)=>{
-       
-        
+              
     		showMarker(result[i], resultsMap, pinColor);
       //});
-
-
-
-    }
+      }
 
     } else {
       alert("The property didn't display for the following reason: " + status);
@@ -146,6 +142,7 @@ function displayMarkers(resultsMap) {
 	});
 }
 
+// Displays markers only for building types that are checked
 function markerMask (resultsMap) {
   displayProperties();
   deleteMarkers();
