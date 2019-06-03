@@ -76,7 +76,7 @@ function showMarker(result, resultsMap,pinColor) {
     
     //hanbos code
     var infowindow = new google.maps.InfoWindow({
-    content: '<p><b>Property Name</b>: '+ result.PropertyName + "<br />" +  '<p><b>Address</b>: ' + result.Adress + "<br />" + '<p><b>Property Type</b>: ' + result.PropertyType + "<br />" + '<p><b>Property ID</b>: ' + result.PropertyI
+    content: '<p><b>Property Name</b>: '+ result.PropertyName + "<br />" +  '<p><b>Address</b>: ' + result.Adress + "<br />" + '<p><b>Property Type</b>: ' + result.PropertyType + "<br />" + '<p><b>Property ID</b>: ' + result.PropertyID
   });
     
     //end hanbos code
