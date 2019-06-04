@@ -50,11 +50,12 @@ function getBuildingType() {
 function buildingTypeColor(bl) {
 
 bldgTypeColorList =[]
+initialColors=["#4959ff","#ef49ff","#49ff49", "#ffff49","#49ffef","#ff5949"]
 
   for(j in bl) {
   	//bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j] + " >" +bl[j])
     console.log(bl.indexOf(bl[j]));
-    bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j]+ "  name="+'c'+ j+" >" +bl[j])
+    bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j]+ "  name="+'c'+ j+" value="+initialColors[j]+">" +bl[j])
   }
 
   var colorText="";

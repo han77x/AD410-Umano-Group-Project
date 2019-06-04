@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 var alldata = require('./routes/addresses');
 var colorRouter = require('./routes/adminColor');
 var allColorRouter = require('./routes/allColors');
+var postRouter = require('./routes/post');
+var delRouter = require('./routes/delete');
 
 var app = express();
 
@@ -27,6 +29,8 @@ app.use('/users', usersRouter);
 app.use('/api/v1/addresses', alldata);
 app.use('/api/v1/colors', colorRouter)
 app.use('/api/v1/allColors', allColorRouter);
+app.use('/api/v1/post', postRouter);
+app.use('/api/v1/delete', delRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

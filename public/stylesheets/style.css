@@ -157,39 +157,97 @@ button_f3{
 /** Style for admin**/
 #admin-form{
   width:80%;
-  height:400px;
+  height:230px;
   background-color:#ffffff;
   color:#000000;    
   opacity: .4;
+  font-weight: bold;
+  font-size: 16pt;
   margin: auto;
   align-items: center;
   align-content: center;
 }
 
-.adminbox {
-  width:60%;
- 
-  margin-left: 10px;
+#admin-form2{
+  width:80%;
+  height:500px;
+  background-color:#ffffff;
+  color:#000000;    
+  opacity: .4;
+  font-weight: bold;
+  font-size: 16pt;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+}
+
+#deletep{
+  width:80%;
+  height:150px;
+  background-color:#ffffff;
+  color:#000000;    
+  opacity: .4;
+  font-weight: bold;
+  font-size: 16pt;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+}
+
+.adminbox1 {
+  width:600px;
+  background:#cdea7c;
   padding-left: 10px;
+  float: left;
+  align-items: center;
+  }
+   .adminbox2 {
+  background: #cdea7c;
+  width:600px;
+  padding-left: 10px;
+  float: right;
+  align-items: center;
+  }
+  .addp{
+  background: #cdea7c;
+  height: 150px;
+  width:100%;
+  font-size: 13pt;
+  align-items: center;
+  }
+  .adbox{
+  background: #cdea7c;
+  height: 50px;
+  width:100%;
+  font-size: 13pt;
   align-items: center;
   }
 
   #adform-container {
-  max-width:800px;
   width:100%;
   margin:auto;
   align-items: center;
 }
 
-#admin-form input[type="text"]
+#admin-form2 input[type="text"]
 
  {
-  margin: 0 0 10px;
-  padding: 0;
-  width: 60%;
+  margin: 10 0 10px;
+  padding-top: 10px;
+  width: 300px;
   height: 30px;
   background: white;
   color: black;
+  }
+
+  #deletep input[type="text"]{
+  margin: 10 0 10px;
+  padding-top: 10px;
+  width: 300px;
+  height: 30px;
+  background: white;
+  color: black;
+
 
 
 }
@@ -202,7 +260,32 @@ button_f3{
 }
 #colorDiv{
   margin-left: 100px;
+  font-size: 14pt;
 }
-#adminbutton{
+.adminbutton{
   background: #4af77e;
+  cursor:pointer;
+  width:100%;
+  height: 50px;
+  margin: auto;
+  text-align: center;
+  align-content: center;
+  font-size:20pt;
+  font-weight: bold;
+
+
+}
+
+
+
+#admin-form input[type="submit"]:hover {
+  background:#ddc6b6;   
+}
+
+#admin-form2 input[type="submit"]:hover {
+  background:#ddc6b6;   
+}
+
+#deletep input[type="submit"]:hover {
+  background:#ddc6b6;   
 }

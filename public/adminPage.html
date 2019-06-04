@@ -2,8 +2,7 @@
 <head>
 	<title>UMANO Admin Page</title>
 	<link rel="stylesheet" href="/stylesheets/style.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/admin.js"></script>
+	
 </head>
 
 <div id ="header"><h1> UMANO Admin Page</h1></div>
@@ -16,11 +15,107 @@
 			<ul id="building_typeColor">
 
 			</ul>
-			<input type="submit" id="adminbutton" value="Save Changes">
 		</div>
+		
+		<div>
+        <input type="submit" class="adminbutton" value="Save Changes">
+        </div>
+
+
+
 	</form>
+
+
+    <form name="form" id="admin-form2" method="POST" action="/api/v1/post">
+
+
+
+    
+        <h3>Add new property </h3>
+		
+		<div class="addP">
+
+        <div class = "adminbox1">
+			
+			  <input id="PropertyID" name = "PropertyID"  type="text" />
+			  <label for="PropertyID">Property ID</label><br>
+
+			  <input id="PropertyName" name = "PropertyName" type="text" />
+			  <label for="PropertyName">Property Name</label><br>
+
+			  <input id="Adress" name = "Adress" type="text" />
+			  <label for="Adress">Adress</label><br>
+              
+              <input id="city" name = "city"  type="text" />
+			  <label for="city">city</label><br>
+
+			  <input id="State" name = "State" type="text" />
+			  <label for="State">State</label><br>
+
+			  <input id="PostalCode" name = "PostalCode" type="text" />
+			  <label for="PostalCode">Postal Code</label><br>
+			  
+			  <input id="latitude" name = latitude"  type="text" />
+			  <label for="latitude">latitude</label><br>
+
+			  <input id="longitude" name = "longitude" type="text" />
+			  <label for="longitude">Longitude</label>
+       </div>
+        <div class = "adminbox2">
+
+			  <input id="PropertyType" name = "PropertyType" type="text" />
+			  <label for="PropertyType">Property Type</label><br>
+              
+              <input id="BuildingType" name = "BuildingType"  type="text" />
+			  <label for="BuildingType">Building Type</label><br>
+
+              <input id="BuildingType" name = "BuildingID"  type="text" />
+			  <label for="BuildingType">Building ID</label><br>
+
+
+			  <input id="OperatingBankAccount" name = "OperatingBankAccount" type="text" />
+			  <label for="OperatingBankAccount">Operating BankAccount</label><br>
+
+			  <input id="ReserveAmount" name = "ReserveAmount" type="text" />
+			  <label for="ReserveAmount">Reserve Amount</label><br>
+
+
+              <input id="BuildingDescription" name = "BuildingDescription"  type="text" />
+			  <label for="BuildingDescription">Building Description</label><br>
+
+			  <input id="YearBuilt" name = "YearBuilt" type="text" />
+			  <label for="YearBuilt">Year Built</label><br>
+
+			  <input id="RentalOwners" name = "RentalOwners" type="text" />
+			  <label for="RentalOwners">Rental Owners</label><br>
+		</div>
+		</div>
+       
+
+
+         <div>
+        <input type="submit" class="adminbutton" value="Add"/>
+        </div>	
+    </form>
+
+    <form name="deleteForm" id="deletep" method="post" action = "http://localhost:3000/api/v1/delete" >
+    	    <h3>Delete property</h3>
+            <div class = "adbox">
+                
+                <input id="padress" name ="PID" type="text" />
+			    <label for="padress">Enter Property ID to dlete</label><br>
+            </div>
+            <div>
+                <input type="submit" class="adminbutton" value="Delete"/>
+             </div>
+
+     </form>  
 
 		
 </div>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/admin.js"></script>
+
 </body>
+
 </html>
