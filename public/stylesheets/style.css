@@ -120,6 +120,14 @@ footer{
   text-align: end;
 }
 
+#property_info{
+  width: 50%;
+  padding: 1am;
+
+
+}
+
+
 img{
   float:left;
 
