@@ -1,89 +1,89 @@
-   
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Map Page</title>
-		<link rel="stylesheet" href="/stylesheets/style.css" />
-		<!-- SCRIPT START -->
-		<script type='text/javascript' src='config.js'></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="js/main.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Map Page</title>
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	<!-- SCRIPT START -->
+	<script type='text/javascript' src='config.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
 
-		<!-- SCRIPT END -->
+	<!-- SCRIPT END -->
 
-	</head>
-	<body>
-		<header>
-			<h1>UMANO Map Page</h1>
-		</header>
-		<nav>
-		</nav>
-		<div id="container_top">
-		<div id="select_div">
-			<ul id=building_type>
-			</ul>
-			<input type="button" id="marker_button" value="ENTER">
-		</div>
-			<div id="search_div">
-				<input type="search" id="searchbar" placeholder="&nbsp;&nbsp;&nbsp;Please Enter Your Search">
-				<input type="button" id="button_search" value="ENTER">
-			</div>
-		</div>
-		<div id="container"></div>
-
-
-
-			<!-- API KEY goes here -->
-		<script async defer>
-			var api_key = config.API_KEY;
-			var urlText = "https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=initMap";
-      document.write("<script type='text/javascript' src='"+urlText+"'><\/script>");
-    </script>
+</head>
+<body>
+<header>
+	<h1>UMANO Map Page</h1>
+</header>
+<nav>
+</nav>
+<div id="container_top">
+	<div id="select_div">
+		<ul id=building_type>
+		</ul>
+		<input type="button" id="marker_button" value="ENTER">
+	</div>
+	<div id="search_div">
+		<input type="search" id="searchbar" placeholder="&nbsp;&nbsp;&nbsp;Please Enter Your Search">
+		<input type="button" id="button_search" value="ENTER">
+	</div>
+</div>
+<div id="container"></div>
 
 
 
-		<!-- START Footer -->
-		<footer>
-			<img src="images/house.jpg" alt="missing image">
-			<div id="select_footer_div">
-				<button id="button_f1" onclick="myFunction()"></button>
-				<button id="button_f2" onclick="myFunction()"></button>
-				<button id="button_f3" onclick="myFunction()"></button>
-			</div>
-			<p class="footerfont"><small>&copy; 2019 - <?=date('Y')?> by <a href="#" target="_blank">Hanbo Yoon</a><a>, All Rights Reserved ~ </a></small></p>
-
-			// Robels property into on the bottom
-
-			<div id="property_info">
-				<h1 id="propertyName">PropertyName
-				</h1>
-				<ul>
-					<li>Adress<span id="adress"></span></li>
-					<li>City<span id="city"></span></li>
-					<li>State<span id="state"></span></li>
-					<li>PostalCode<span id="postalCode"></span></li>
-					<li>PropertyType<span id="propertyType"></span></li>
-					<li>BuildingType<span id="buildingType"></span></li>
-					<li>OperatingBankAccount<span id="operatingBankAccount"></span></li>
-					<li>ReserveAmount<span id="reserveAmount"></span></li>
-					<li>BuildingDescription<span id="buildingDescription"></span></li>
-					<li>YearBuilt<span id="yearBuilt"></span></li>
-					<li>RentalOwners<span id="rentalOwners"></span></li>
-
-				</ul>
-			</div>
+<!-- API KEY goes here -->
+<script async defer>
+	var api_key = config.API_KEY;
+	var urlText = "https://maps.googleapis.com/maps/api/js?key=" + api_key + "&callback=initMap";
+	document.write("<script type='text/javascript' src='"+urlText+"'><\/script>");
+</script>
 
 
 
-		</footer>
+<!-- START Footer -->
+<footer>
+	<img src="images/house.jpg" alt="missing image">
+
+
+
+
+	<div id="property_info">
+		<ul>
+			<li>Address<span id="adress"></span></li>
+			<li>City<span id="city"></span></li>
+			<li>State<span id="state"></span></li>
+			<li>Postal Code<span id="postalCode"></span></li>
+			<li>Property Type<span id="propertyType"></span></li>
+			<li>Building Type<span id="buildingType"></span></li>
+			<li>Operating Bank Account<span id="operatingBankAccount"></span></li>
+			<li>Reserve Amount<span id="reserveAmount"></span></li>
+			<li>Building Description<span id="buildingDescription"></span></li>
+			<li>Year Built<span id="yearBuilt"></span></li>
+			<li>Rental Owners<span id="rentalOwners"></span></li>
+
+		</ul>
+	</div>
+	<div id="select_footer_div">
+		<button id="button_f1" onclick="myFunction()"></button>
+		<button id="button_f2" onclick="myFunction()"></button>
+		<button id="button_f3" onclick="myFunction()"></button>
+	</div>
+	<p  id= "copyright" ><small>&copy; 2019 - <?=date('Y')?> by <a href="#" target="_blank">Hanbo Yoon, Robel Gedem, Kyle Ostling, Dereje Desta, Micheal Glanz. </a><a>, All Rights Reserved ~ </a></small></p>
+
+
+
+
+
+
+</footer>
 
 
 
 <!-- END Footer -->
 
-	</body>
+</body>
 
 </html>
