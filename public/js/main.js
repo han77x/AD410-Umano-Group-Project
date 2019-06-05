@@ -6,6 +6,7 @@ console.log(pincolors)
 var buildingList = [];
 var checkList = [];
 var markers = [];
+var trafficIndicator = false
 //var buildingList2=localStorage.getItem("buildingList2");
 
 /*Creates initial map view*/
@@ -23,16 +24,21 @@ function initMap() {
   document.getElementById('marker_button').addEventListener('click', function() {
     markerMask(map);
   });
-    
-    //trafic conditions
-    var trafficLayer = new google.maps.TrafficLayer();
- trafficLayer.setMap(map);
-
-
-  displayMarkers(map);
 
   var trafficLayer = new google.maps.TrafficLayer();
-  trafficLayer.setMap(map);
+  document.getElementById('button_traffic').addEventListener('click', function() {
+    //traffic conditions
+    console.log("trafficIndicator: " + trafficIndicator)
+    if (trafficIndicator == false) {
+        trafficLayer.setMap(map);
+        trafficIndicator = true;
+    } else {
+        trafficLayer.setMap(null);
+        trafficIndicator = false;
+    }
+  })
+
+  displayMarkers(map);
 }
 /*Converts address to geolocation and centers map on it */
 function geocodeAddress(geocoder, resultsMap) {
@@ -73,12 +79,12 @@ function showMarker(result, resultsMap,pinColor) {
   location.lng = (Number(result.longitude));
   console.log(location);
   resultsMap.setCenter(location);
-    
+
     //hanbos code
-    var infowindow = new google.maps.InfoWindow({
+  var infowindow = new google.maps.InfoWindow({
     content: '<p><b>Property Name</b>: '+ result.PropertyName + "<br />" +  '<p><b>Address</b>: ' + result.Adress + "<br />" + '<p><b>Property Type</b>: ' + result.PropertyType + "<br />" + '<p><b>Property ID</b>: ' + result.PropertyID
   });
-    
+
     //end hanbos code
 
   var marker = new google.maps.Marker({
@@ -92,7 +98,7 @@ function showMarker(result, resultsMap,pinColor) {
     //}
   });
 
-  //Keep track of markers 
+  //Keep track of markers
   marker.addListener('mouseover', function() {
     infowindow.open(resultsMap, marker);
   });
@@ -122,27 +128,27 @@ function deleteMarkers() {
 
 // Displays all property markers on page load
 function displayMarkers(resultsMap) {
-  
+
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result, status)=>{
     if(status === 'success') {
-      
-      for(var i in result) {
-        
-        //var pinColor = document.getElementById(buildingList2[i]).value;
-        //console.log(pinColor)
-        
-        pinColor = pincolors[result[i].BuildingID]
 
-         //$.getJSON("http://localhost:3000/api/v1/allcolors", (result)=>{
-              
-    		showMarker(result[i], resultsMap, pinColor);
-      //});
+      for(var i in result) {
+        if(result[i].PreviousProperties != 'YES') {
+
+          //var pinColor = document.getElementById(buildingList2[i]).value;
+          //console.log(pinColor)
+          pinColor = pincolors[result[i].BuildingID]
+
+           //$.getJSON("http://localhost:3000/api/v1/allcolors", (result)=>{
+      		showMarker(result[i], resultsMap, pinColor);
+          //});
+        }
       }
+      resultsMap.setCenter({lat: 47.6987081, lng: -122.3325518})
 
     } else {
       alert("The property didn't display for the following reason: " + status);
     }
-  
 	});
 }
 
@@ -154,24 +160,28 @@ function markerMask (resultsMap) {
     if(status === 'success') {
       //var pinColor;
       for(i in result) {
-        
-       var pinColor =pincolors[result[i].BuildingID];
-       //var pinColor = document.getElementById(buildingList2[i]).value;
-        
+        if(result[i].PreviousProperties != 'YES'  || checkList[checkList.length - 1].checked) {
 
-        for(c in checkList) {
-          if(result[i].BuildingType == checkList[c].type){
-            check = checkList[c].checked;
-            break;
-          }
-        }
-        console.log(check);
-        if(check) {
-          
-        showMarker(result[i], resultsMap, pinColor);
-            
-            console.log(pinColor)
-            //showMarker(result[i], resultsMap, pinColor);
+            if(result[i].PreviousProperties == 'YES') {
+              pinColor = "#dccbc7";
+              check = true
+            } else {
+              var pinColor = pincolors[result[i].BuildingID];
+
+             //var pinColor = document.getElementById(buildingList2[i]).value;
+              for(c in checkList) {
+                console.log(checkList[c].type);
+                  if(result[i].BuildingType == checkList[c].type){
+                    check = checkList[c].checked;
+                    break;
+                  }
+              }
+            }
+            console.log(check);
+            if(check) {
+                showMarker(result[i], resultsMap, pinColor);
+                console.log(pinColor)
+            }
         }
       }
     } else {
@@ -190,14 +200,13 @@ function displayProperties() {
   checkList = [];
   for(b in buildingList) {
     checkBox = document.getElementById(buildingList[b]);
-    var building = {
-    };
+    var building = {};
     building.checked = checkBox.checked;
     building.type = buildingList[b];
 
     checkList.push(building);
   }
-  
+
  }
 
 //get all messages from db
@@ -218,20 +227,23 @@ function getBuildingType() {
         buildingList.push(result[i].BuildingType);
       }
     }
+    buildingList.push("Inactive")
     buildingType(buildingList);
     // return buildingList;
 	});
 }
 
 function buildingType(bl) {
-  
+
   var buildingTypeList = []
   for(i in bl) {
     buildingTypeList.push("<input type='checkbox' id=" + bl[i] + " value='check_box'>" + bl[i])
   }
 
+  // buildingTypeList.push("<input type='checkbox' id=Inactive value='check_box'>Inactive")
+
   var text = "";
-  
+
   for(b in buildingTypeList) {
    text += "<li>" + buildingTypeList[b] + "</li>";
     document.getElementById("building_type").innerHTML = text;
@@ -262,7 +274,3 @@ function displayPropertyInfo(result){
   document.getElementById('yearBuilt').innerHTML = result.YearBuilt;
   document.getElementById('rentalOwners').innerHTML = result.RentalOwners;
 }
-
-
-
-
