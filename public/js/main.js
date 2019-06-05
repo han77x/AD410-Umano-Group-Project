@@ -97,6 +97,10 @@ function showMarker(result, resultsMap,pinColor) {
     infowindow.open(resultsMap, marker);
   });
 
+  marker.addListener('click', function() {
+      displayPropertyInfo(result);
+  });
+
   marker.addListener('mouseout', function() {
     infowindow.close(resultsMap, marker);
   });
@@ -244,9 +248,21 @@ function loadPinColors(){
 }
 
 
+function displayPropertyInfo(result){
+  document.getElementById('propertyName').innerHTML = result.PropertyName;
+  document.getElementById('adress').innerHTML = result.Adress;
+  document.getElementById('city').innerHTML = result.City;
+  document.getElementById('state').innerHTML = result.State;
+  document.getElementById('postalCode').innerHTML = result.PostalCode;
+  document.getElementById('propertyType').innerHTML = result.PropertyType;
+  document.getElementById('buildingType').innerHTML = result.BuildingType;
+  document.getElementById('operatingBankAccount').innerHTML = result.OperatingBankAccount;
+  document.getElementById('reserveAmount').innerHTML = result.ReserveAmount;
+  document.getElementById('buildingDescription').innerHTML = result.BuildingDescription;
+  document.getElementById('yearBuilt').innerHTML = result.YearBuilt;
+  document.getElementById('rentalOwners').innerHTML = result.RentalOwners;
+}
 
-
-  
 
 
 
