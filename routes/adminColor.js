@@ -5,13 +5,13 @@ var db = require('../db');
 router.post('/', function(req,res){
 
  var pref = [
-    
- [req.body.c0,0,],
-  [ req.body.c1,1],
-   [req.body.c2,2],
-   [req.body.c3,3],
-   [req.body.c4,4]
-    
+
+ [req.body.c0,1],
+  [ req.body.c1,2],
+   [req.body.c2,3],
+   [req.body.c3,4],
+   [req.body.c4,5]
+
     ];
 
 var queryParams = [
@@ -36,9 +36,9 @@ var queryParams = [
 
 
 
-    
 
- 
+
+
 
   db.query(`UPDATE Building SET Color = ? WHERE buildingID = ? `, pref[0], (error, result, fields) => {
     if (error){
@@ -67,10 +67,10 @@ var queryParams = [
  });
   });
   });
-  });  
-   
   });
- 
+
+  });
+
 
 
 
@@ -81,5 +81,3 @@ var queryParams = [
 
 
 module.exports = router;
-
-
