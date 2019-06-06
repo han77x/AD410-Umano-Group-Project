@@ -137,7 +137,7 @@ function displayMarkers(resultsMap) {
 
           //var pinColor = document.getElementById(buildingList2[i]).value;
           //console.log(pinColor)
-          pinColor = pincolors[result[i].BuildingID]
+          pinColor = pincolors[result[i].BuildingID - 1]
 
            //$.getJSON("http://localhost:3000/api/v1/allcolors", (result)=>{
       		showMarker(result[i], resultsMap, pinColor);
@@ -163,10 +163,10 @@ function markerMask (resultsMap) {
         if(result[i].PreviousProperties != 'YES'  || checkList[checkList.length - 1].checked) {
 
             if(result[i].PreviousProperties == 'YES') {
-              pinColor = "#dccbc7";
+              pinColor = "#dccbc7";     // #dccbc7 equals light gray.
               check = true
             } else {
-              var pinColor = pincolors[result[i].BuildingID];
+              var pinColor = pincolors[result[i].BuildingID - 1];
 
              //var pinColor = document.getElementById(buildingList2[i]).value;
               for(c in checkList) {
@@ -224,7 +224,7 @@ function getBuildingType() {
         }
       }
       if(unique == true) {
-        buildingList.push(result[i].BuildingType);
+        buildingList.push(result[i].BuildingType); 
       }
     }
     buildingList.push("Inactive")
@@ -240,12 +240,14 @@ function buildingType(bl) {
     buildingTypeList.push("<input type='checkbox' id=" + bl[i] + " value='check_box'>" + bl[i])
   }
 
-  // buildingTypeList.push("<input type='checkbox' id=Inactive value='check_box'>Inactive")
-
   var text = "";
-
   for(b in buildingTypeList) {
-   text += "<li>" + buildingTypeList[b] + "</li>";
+    if(b < buildingTypeList.length) {
+      pcolor = pincolors[b];
+    } else {
+      pcolor = "#000000";
+    }
+    text += "<li><span style='color:" + pcolor + "'>" + buildingTypeList[b] + "</span></li>";
     document.getElementById("building_type").innerHTML = text;
   }
 
