@@ -7,11 +7,13 @@
 
 <div id ="header"><h1> UMANO Admin Page</h1></div>
 <body id= "admin-body">
+<input class="adButton" value = "Logout" type="button" onclick="window.location.href = '/'" /><br></div>	
 <div id="adform-container">
     
 	<form name="form" id="admin-form" method="POST" action="/api/v1/colors" >
 		<h3>Custumize Property type colors</h3>
 		<div id="colorDiv">
+			
 			<ul id="building_typeColor">
 
 			</ul>
@@ -19,6 +21,7 @@
 		
 		<div>
         <input type="submit" class="adminbutton" value="Save Changes">
+
         </div>
 
 
@@ -30,7 +33,7 @@
 
 
 
-    
+        
         <h3>Add new property </h3>
 		
 		<div class="addP">
@@ -69,8 +72,8 @@
               <input id="BuildingType" name = "BuildingType"  type="text" />
 			  <label for="BuildingType">Building Type</label><br>
 
-              <input id="BuildingType" name = "BuildingID"  type="text" />
-			  <label for="BuildingType">Building ID</label><br>
+              <input id="BuildingID" name = "BuildingID"  type="text" />
+			  <label for="BuildingID">Building ID</label><br>
 
 
 			  <input id="OperatingBankAccount" name = "OperatingBankAccount" type="text" />
@@ -98,15 +101,16 @@
         </div>	
     </form>
 
-    <form name="deleteForm" id="deletep" method="post" action = "http://localhost:3000/api/v1/delete" >
-    	    <h3>Delete property</h3>
+    <form name="deleteForm" id="deletep" method="post" action = "http://localhost:3000/api/v1/manage/getProperties" >
+
+    	    <h3>Manage property</h3>
             <div class = "adbox">
                 
-                <input id="padress" name ="PID" type="text" />
-			    <label for="padress">Enter Property ID to dlete</label><br>
+                <input id="zipCode" name ="zipCode" type="text" />
+			    <label for="zipCode">search by zip code to Edit Property</label><br>
             </div>
             <div>
-                <input type="submit" class="adminbutton" value="Delete"/>
+                <input type="submit" class="adminbutton" value="Manage"/>
              </div>
 
      </form>  
