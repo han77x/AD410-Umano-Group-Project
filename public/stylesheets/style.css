@@ -4,8 +4,10 @@ body {
   background: #e3e8ef;
   background-size: cover;
   background-repeat: no-repeat;
-  margin:0;
+  margin:0 auto;
   padding:0;
+  position: relative;
+
 }
 
 a {
@@ -164,9 +166,9 @@ button_f3{
 }
 /** Style for admin**/
 #admin-form{
-  max-width: 1200px;
-  width:80%;
- background-color:white;
+  max-width:200%;
+  width:90%;
+  background-color:white;
   color:black;    
  
   font-weight: bold;
@@ -179,8 +181,8 @@ button_f3{
 }
 
 #admin-form2{
-  max-width: 1200px;
-  width:80%;
+  max-width:300%;
+  width: 90%;
   height:500px;
   background-color:white;
   color:black;    
@@ -195,8 +197,7 @@ button_f3{
 }
 
 #editP{
-  max-width: 1200px;
-  width:80%;
+  max-width: 500px;
   height:150px;
   background-color:white;
   color:black;    
@@ -209,8 +210,8 @@ button_f3{
 }
 
 #deletep{
-  max-width: 1200px;
-  width:80%;
+  max-width: 300%;
+  width:90%;
   height:150px;
   background-color:white;
   color:#000000;    
@@ -225,38 +226,42 @@ button_f3{
 }
 
 .adminbox1 {
-  max-width: 500px;
-  width:500px;
+  max-width: 400px;
+
   background:#a7a8aa;
   padding-left: 10px;
   float: left;
   align-items: center;
   margin: 0 auto;
+  position: relative;
   }
    .adminbox2 {
-  max-width: 600px;
+  
+  max-width: 500px;
   background: #a7a8aa;
-  width:600px;
   padding-left: 10px;
   float: right;
   align-items: center;
   margin: 0 auto;
+  position: relative;
 
   }
   .addp{
-   max-width: 1200px;
+  max-width: 300%;
+  width: 100%;
   background: #a7a8aa;
   height: 400px;
-  width:100%;
   font-size: 13pt;
   align-items: center;
   margin: 0 auto;
+  position: relative;
+
 
   }
   .adbox{
   background:#a7a8aa;
   height: 50px;
-  width:100%;
+  max-width:100%;
   font-size: 13pt;
   align-items: center;
   margin: 0 auto;
@@ -264,7 +269,7 @@ button_f3{
   }
 
   #adform-container {
-  width:100%;
+  max-width:100%;
   margin:0 auto;
   align-items: center;
 }
@@ -274,18 +279,18 @@ button_f3{
  {
   margin: 10 0 10px;
   padding-top: 10px;
-  width: 300px;
+  max-width: 300px;
   height: 30px;
   background: white;
   color: black;
- 
+  position: relative;
 
   }
 
   #deletep input[type="text"]{
   margin: 10 0 10px;
   padding-top: 10px;
-  width: 300px;
+  max-width: 300px;
   height: 30px;
   background: white;
   color: black;
