@@ -1,25 +1,31 @@
-# Umano-Group-Project MVP Include User stories
+### Umano Project ###
+# A web feature maps out all the properties UMANO property management currently manage and past managed.The UMANO app integrated the google API package that allows us to use the google map feature into our App. Ths App have three pages: Main page, Admin page, and Login page.
 
-Clicking UMANO title will redirect to main(home) page
+  ## Main Page ##
+  1. The list of properties types checkboxes are at the top-left corner. Five properties types: Single-Family, Condo/Townhome,  
+     Multi-Family, Retail, Office and Inactive properties. For example, if you are looking for Single-Family property check the Single-          Family checkbox and click enter, it will show Single-Family property on the map only.
+  2. We have a customized color marker feature at the admin page for five properties types besides Inactive properties. Inactive              properties will default show the gary color markers on the map if you click its checkbox.
+  3. Serch box is at top-right corner. It allows user to enter geographical searches and the google map will reposition.
+  4. "Traffic" on/off button: Click the button to show real-time traffic information.
+  5. Each property has its marker info window. While hovering property marker, it will show the brief info of each property.
+  6. The deatiled property info will show at the bottom page when the marker is clicked. 
 
-As a user, I want to login with authentication to the page (dereje)
-  M
-As a user I can select property type to to display using a Property Type drop-down (han kuo)
+  ## Login Page ##
+  1. After clicking the green button "Login" from the main page, it will redirect to Logain Page.
+  2. Allowing admin users to login from the front-end of UMANO Login page.
 
-As a user, I want admin privileges to allow map features to be edited, e.g. change colors on map, etc.(micheal)
+  ## Admin page ##
+  ## url: localhost:3000/adminpage
+  1. The admin page allows user to customized the color markers of five types of properties. 
+  2. Add feature: It allows user to add in the new property into database
+  3. Edit feature: It allows user to update the property info into database 
+  4. Delete feature: It allows user to update the current property to inactive property.
+  
 
-As a user, I want to see price and status of parcel on hover-over of pin on map.(Robel)
 
-As a user, I want to see a photo of the property when parcel is selected.(han kuo)
 
-As a user, I want to see colored marker on map related to parcel type, e.g. residential, multi-family, commercial(hanbo)
 
-As a user, I want to see detailed information appear in the lower half of screen when a parcel is selected.(Robel)
 
-As a user, I want to be able to search using google maps to locate a parcel.(kyle)
 
-As a developer ,I need to define MVP to start the project (group) √ ->complete
+  
 
-As a developer, I nedd to have a Json file withh all data for testing (dereje)
-
-As a developer , I want to have an accesible database with all required infromations (dereje)
