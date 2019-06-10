@@ -1,23 +1,3 @@
-/**$(document).ready(function(){
-$("#adminbutton").click(function(e)
-{
-var MyForm = JSON.stringify($("#admin-form").serializeJSON());
-console.log(MyForm);
- $.ajax(
- {
- url : "localhost:3000/api/v1/colors",
- type: "POST",
- data : MyForm,
-
- });
- e.preventDefault(); //STOP default action
-
-});
-});
-
-**/
-
-
 
 var buildingList2 = [];
 $(document).ready(function(){
@@ -25,6 +5,7 @@ $(document).ready(function(){
 });
 
 function getBuildingType() {
+
 	$.getJSON("http://localhost:3000/api/v1/addresses/", (result)=>{
     var unique;
 
@@ -48,9 +29,16 @@ function getBuildingType() {
 }
 
 function buildingTypeColor(bl) {
-
-bldgTypeColorList =[]
-initialColors=["#4959ff","#ef49ff","#49ff49", "#ffff49","#49ffef","#ff5949"]
+  //bldgTypeColorList =[];
+  //initialColors=[];
+  //console.log(initialColors[0])
+$.getJSON("http://localhost:3000/api/v1/allColors", (result)=>{
+   bldgTypeColorList =[];
+   initialColors=[];
+   for (var i = 0; i < result.length; i++) {
+    initialColors[i]=result[i].Color;
+    console.log(initialColors[0]); 
+  }
 
   for(j in bl) {
   	//bldgTypeColorList.push("<input type='color' id=" +'color'+ bl[j] + " >" +bl[j])
@@ -62,8 +50,8 @@ initialColors=["#4959ff","#ef49ff","#49ff49", "#ffff49","#49ffef","#ff5949"]
   for(bc in bldgTypeColorList) {
     colorText += "<li>" + bldgTypeColorList[bc] + "</li>";
     document.getElementById("building_typeColor").innerHTML = colorText;
-
   }
+});
 }
 localStorage.setItem("buildingList2",buildingList2);
 

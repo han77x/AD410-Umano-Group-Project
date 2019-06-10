@@ -30,7 +30,8 @@ router.post('/', function(req,res){
     if (error){
       res.status(500).send(error);
     }
-    res.status(201).send('record added');
+            res.redirect('/adminPage.html');
+
   });
   
 });

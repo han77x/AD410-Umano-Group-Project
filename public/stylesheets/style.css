@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/seattle.jpg");
+  background: #e3e8ef;
   background-size: cover;
   background-repeat: no-repeat;
   margin:0;
@@ -164,76 +164,108 @@ button_f3{
 }
 /** Style for admin**/
 #admin-form{
+  max-width: 1200px;
   width:80%;
-  height:230px;
-  background-color:#ffffff;
-  color:#000000;    
-  opacity: .4;
+ background-color:white;
+  color:black;    
+ 
   font-weight: bold;
-  font-size: 16pt;
-  margin: auto;
+  font-size: 18pt;
+  margin: 0 auto;
   align-items: center;
   align-content: center;
+  position: relative;
+
 }
 
 #admin-form2{
+  max-width: 1200px;
   width:80%;
   height:500px;
-  background-color:#ffffff;
-  color:#000000;    
-  opacity: .4;
+  background-color:white;
+  color:black;    
+
   font-weight: bold;
-  font-size: 16pt;
-  margin: auto;
+  font-size: 18pt;
+  margin: 0 auto;
   align-items: center;
   align-content: center;
+  position: relative;
+
+}
+
+#editP{
+  max-width: 1200px;
+  width:80%;
+  height:150px;
+  background-color:white;
+  color:black;    
+  font-weight: bold;
+  font-size: 18pt;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  position: relative;
 }
 
 #deletep{
+  max-width: 1200px;
   width:80%;
   height:150px;
-  background-color:#ffffff;
+  background-color:white;
   color:#000000;    
-  opacity: .4;
   font-weight: bold;
-  font-size: 16pt;
-  margin: auto;
+  font-size: 18pt;
+  margin: 0 auto;
   align-items: center;
   align-content: center;
+  position: relative;
+
+
 }
 
 .adminbox1 {
-  width:600px;
-  background:#cdea7c;
+  max-width: 500px;
+  width:500px;
+  background:#a7a8aa;
   padding-left: 10px;
   float: left;
   align-items: center;
+  margin: 0 auto;
   }
    .adminbox2 {
-  background: #cdea7c;
+  max-width: 600px;
+  background: #a7a8aa;
   width:600px;
   padding-left: 10px;
   float: right;
   align-items: center;
+  margin: 0 auto;
+
   }
   .addp{
-  background: #cdea7c;
-  height: 150px;
+   max-width: 1200px;
+  background: #a7a8aa;
+  height: 400px;
   width:100%;
   font-size: 13pt;
   align-items: center;
+  margin: 0 auto;
+
   }
   .adbox{
-  background: #cdea7c;
+  background:#a7a8aa;
   height: 50px;
   width:100%;
   font-size: 13pt;
   align-items: center;
+  margin: 0 auto;
+
   }
 
   #adform-container {
   width:100%;
-  margin:auto;
+  margin:0 auto;
   align-items: center;
 }
 
@@ -246,6 +278,8 @@ button_f3{
   height: 30px;
   background: white;
   color: black;
+ 
+
   }
 
   #deletep input[type="text"]{
@@ -255,9 +289,7 @@ button_f3{
   height: 30px;
   background: white;
   color: black;
-
-
-
+  
 }
 
 
@@ -265,17 +297,20 @@ button_f3{
   color:#045cf4;
   font-weight:bold;
   align-items: center;
+
 }
 #colorDiv{
-  margin-left: 100px;
-  font-size: 14pt;
+    background-color:#a7a8aa;
+    height:160px;
+  font-size: 18pt;
+   
+
 }
 .adminbutton{
   background: #4af77e;
   cursor:pointer;
   width:100%;
   height: 50px;
-  margin: auto;
   text-align: center;
   align-content: center;
   font-size:20pt;
@@ -296,4 +331,38 @@ button_f3{
 
 #deletep input[type="submit"]:hover {
   background:#ddc6b6;   
+}
+.adButton{
+  background:#42f495;
+  float:right;
+  width:80px;
+  height: 40px;
+}
+
+#adminL-form {
+  width:30%;
+  height:200px;
+  background:#d1edcc ;
+  padding:25px;
+  margin:80px auto;
+
+}
+
+#adminL-form input[type="text"], 
+#adminL-form input[type="password"]
+ {
+
+  margin: 0 0 10px;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+
+}
+
+#adminL-form button[type="submit"] {
+  cursor:pointer;
+  width:50%;
+  margin:0 0 5px;
+  padding:10px;
+
 }

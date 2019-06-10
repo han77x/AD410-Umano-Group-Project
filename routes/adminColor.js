@@ -33,13 +33,6 @@ var queryParams = [
   ];
   var query = "INSERT INTO Properties (PropertyID, PropertyName, Address, City, State, PostalCode, latitude, longitude, PropertyType, BuildingType, OperatingBankAccount, ReserveAmount, BuildingDescription, YearBuilt, RentalOwners)" + "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
 
-
-
-
-
-
-
-
   db.query(`UPDATE Building SET Color = ? WHERE buildingID = ? `, pref[0], (error, result, fields) => {
     if (error){
       res.status(500).send(error);
@@ -62,7 +55,7 @@ var queryParams = [
     }
 
 
-    res.redirect('/');
+    res.redirect('/adminPage.html');
   });
  });
   });
