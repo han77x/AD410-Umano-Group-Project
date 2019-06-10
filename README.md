@@ -1,5 +1,5 @@
 ### Umano Project ###
-# A web feature maps out all the properties UMANO property management currently manage and past managed.The UMANO app integrated the google API package that allows us to use the google map feature into our App. Ths App have three pages: Main page, Admin page, and Login page.
+A web feature maps out all the properties UMANO property management currently manage and past managed.The UMANO app integrated the google API package that allows us to use the google map feature into our App. Ths App have three pages: Main page, Admin page, and Login page.
 
   ## Main Page ##
   1. The list of properties types checkboxes are at the top-left corner. Five properties types: Single-Family, Condo/Townhome,  
