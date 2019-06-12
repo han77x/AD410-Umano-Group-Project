@@ -19,6 +19,10 @@ A web app that maps out all the properties UMANO property management currently m
   1. The admin page allows users to customized the color markers of five types of properties. 
   2. Add feature: It allows users to add in the new property into database
   3. Edit feature: It allows users to update the property info into database or mark as Inactive
+#  Credentials
+admin login page it's available in the database
+Username: umano
+Password: umano
 
   
 
