@@ -19,25 +19,28 @@
 		<header>
 			<h1>UMANO Map Page</h1>
 		</header>
-		<div id="adLogin">
-	<input class="adButton" value = "Login" type="button" onclick="window.location.href = '/adminLogin.html'" /><br>	
-	</div>
 		<nav>
 		</nav>
+		<!--- Start container top -->
 		<div id="container_top">
+			<div id="adLogin">
+			<input class="button" id="adButton" value = "Login" type="button" onclick="window.location.href = '/adminLogin.html'" /><br>
+		</div>
   		<div id="select_div">
   			<ul id=building_type>
   			</ul>
-  			<input type="button" id="marker_button" value="ENTER">
+				<input class="button" type="button" id="marker_button" value="ENTER">
   		</div>
       <div id="overlays">
-        <input type="button" id="button_traffic" value="TRAFFIC">
+
       </div>
 			<div id="search_div">
 				<input type="search" id="searchbar" placeholder="&nbsp;&nbsp;&nbsp;Please Enter Your Search">
-				<input type="button" id="button_search" value="ENTER">
+				<input class="button" type="button" id="button_search" value="ENTER">
+				<input class="button" type="button" id="button_traffic" value="TRAFFIC">
 			</div>
 		</div> <!-- End container_top -->
+
 		<div id="container"></div>
 
 
@@ -54,18 +57,13 @@
 		<!-- START Footer -->
 		<footer>
 			<img src="images/house.jpg" alt="missing image">
-			<div id="select_footer_div">
-				<button id="button_f1" onclick="myFunction()"></button>
-				<button id="button_f2" onclick="myFunction()"></button>
-				<button id="button_f3" onclick="myFunction()"></button>
-			</div>
-			<p class="footerfont"><small>&copy; 2019 - <?=date('Y')?> by <a href="#" target="_blank">Hanbo Yoon</a><a>, All Rights Reserved ~ </a></small></p>
+			
 
-			// Robels property into on the bottom
+			<!-- Robels property display into on the bottom -->
 
 			<div id="property_info">
-				<h1 id="propertyName">PropertyName
-				</h1>
+				<h3 id="propertyName">PropertyName
+				</h3>
 				<ul>
 					<li>Adress<span id="adress"></span></li>
 					<li>City<span id="city"></span></li>
@@ -82,6 +80,12 @@
 				</ul>
 			</div>
 
+			<div id="select_footer_div">
+				<button id="button_f1" onclick="myFunction()"></button>
+				<button id="button_f2" onclick="myFunction()"></button>
+				<button id="button_f3" onclick="myFunction()"></button>
+			</div>
+			<p  id= "copyright" ><small>&copy; 2019 - <?=date('Y')?> by <a href="#" target="_blank">Hanbo Yoon, Robel Gedem, Kyle Ostling, Dereje Desta, Micheal Glanz. </a><a>, All Rights Reserved ~ </a></small></p>
 
 
 		</footer>
